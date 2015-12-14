@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= params %>
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Add a post", new_post_path %></li>
+      <li><%= link_to "Archive", posts_path %></li>
+    </ul>
+</header>
+
 <%= yield %>
 
 </body>

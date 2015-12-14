@@ -1,1 +1,13 @@
-<h1>Post number <%= params[:id] %></h1>
+<section class="show-post">
+<h1><%= @post.title %></h1>
+
+<%= simple_format @post.body %>
+
+<div class="post__actions">
+  <ul>
+    <li><%= link_to "Edit", edit_post_path(@post) %></li>
+    <li><%= link_to "Delete", post_path(@post), method: :delete, :data => { :confirm => "Are you sure?" } %></li>
+  </ul>
+</div>
+
+</section>
