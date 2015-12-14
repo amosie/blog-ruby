@@ -1,6 +1,9 @@
 <h1>List of blogs</h1>
 
 <% @posts.each do |post| %>
-  <h2><%= post[:title] %></h2>
-  <p><%= post[:body]%></p>
+  <h2><%= post.title %></h2>
+  <p><%= post.body %></p>
+  <p><%= time_of(post) %></p>
+  <p><%= edit_of(post) %></p>
+  <%= pull_quote_for(post) %>
 <% end %>

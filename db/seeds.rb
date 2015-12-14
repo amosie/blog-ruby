@@ -15,7 +15,8 @@ ActiveRecord::Base.transaction do
 
     {
     :title => "Learning ruby",
-    :body => "My second blog post"
+    :body => "My second blog post",
+    :created_at => 2.weeks.ago
     },
 
     {
