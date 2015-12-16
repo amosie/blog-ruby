@@ -16,4 +16,8 @@ module PostsHelper
       "Lasted updated #{ time_ago_in_words(post.updated_at) } ago."
     end
   end
+
+  def author_of(comment)
+    "#{ comment.author_name } commented #{ time_ago_in_words(comment.created_at) } ago."
+  end
 end

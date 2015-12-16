@@ -17,6 +17,6 @@
   <!-- For each item in the comments array call it comment -->
   <% @post.comments.each do |comment| %>
     <%= simple_format comment.body %>
-    <p><%= comment.author_name %> commented <%= time_ago_in_words(comment.created_at) %> ago.</p>
+    <p><%= author_of %></p>
   <% end %>
 </section>
