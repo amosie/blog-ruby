@@ -78,7 +78,7 @@ end
 #   :rating => "10"
 # },
 # {
-#   :title => "Harry Poter"
+#   :title => "Harry Potter"
 #   :rating => "10"  
 # }
 # ]
@@ -88,3 +88,100 @@ end
 
 # gatsby[:rating] #=> 10
 # potter[:rating] #=> 10
+
+
+## Views
+
+View files are html peppered with ruby. Generally the less ruby logic in the view the better.
+Views are for HTML structure, they should be clear and uncluttered. Rails provides helpers for handling logic
+in views neatly. We can also make use of partials to keep views succinct and DRY (don't repeat yourself). "Repetition is better than the wrong abstraction"
+
+## Helpers
+
+Helper methods are magically mixed in to rails views, they are a convinient place to put application logic that would otherwise clutter the view. Don't lean too heavily on helpers, ie don't bloat helper methods with really complex stuff because they are globally available. There are other places that can be reasonable for complex code.
+
+## Models
+
+A model is the interface to a resources database table. We reach in to the database via the model to Crate, Read, Update and Destroy records (rows). The model file is responsible for code related to that resource. These are generally fatter than controllers and contain more methods than helper files.
+
+They inherit lots of methods for interacting with the DB from `ActiveRecord::Base`.
+
+- `Post.all`
+- `Post.find(1)`
+- `Post.find(2)`
+- `Post.find(params[:id])`
+- `Post.destroy`
+- `@post.update(title :"foobar")`
+
+## Methods
+
+Methods are messages we can send to objects, objects that receive a message is known as the receiver.
+The message is said to be "called".You can send the message in a few ways. Most common way is for the
+receiver to be followed by a full stop and the name of the method being called.
+
+'''
+# Receiver.method_being_called
+      method
+      /
+POST.all
+^receiver
+             method
+             /
+@post.destroy
+^ receiver
+'''
+
+You can also use Ruby's 'send' method to send the message:
+
+'''
+# Receiver.send(:method_being_called)
+
+Foo.send(:bar)
+baz.send(:quux)
+'''
+
+The receiver might be a class (e.g Post) or it might be an instance (contained within a variable or an instance - @var).
+Depending on what it is we say the method is an instance method or a class method.
+
+To define an instance method on a class, open a class and use the `def` keyword:
+
+'''
+class Foo
+  def bar
+  end
+end
+
+class Post
+  def is_published?
+    true
+  end
+end
+'''
+
+An instance is an object created when a class is instantiated (usually with the `new` method
+- but there are other constructor methods as well).
+
+'''
+@Post = Post.new
+
+@Post <-- is now an instance
+
+'''
+To define a class method open up a class and use the `def` keyword along with the `self` keyword.
+
+'''
+class Foo
+  def self.my_class_method
+    puts "foobar"
+  end
+end
+
+class User
+  def self.send_confirmations
+    unconfirmed.send_email(:confirmation)
+  end
+end
+
+User.send_confirmations
+
+'''
