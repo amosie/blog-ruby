@@ -10,5 +10,13 @@
     <li><%= link_to "Delete", post_path(@post), method: :delete, :data => { :confirm => "Are you sure?" } %></li>
   </ul>
 </div>
+</section>
 
+<section class="show-post__comments">
+  <h3>Comments</h3>
+  <!-- For each item in the comments array call it comment -->
+  <% @post.comments.each do |comment| %>
+    <%= simple_format comment.body %>
+    <p><%= comment.author_name %> commented <%= time_ago_in_words(comment.created_at) %> ago.</p>
+  <% end %>
 </section>

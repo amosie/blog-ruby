@@ -10,9 +10,10 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => true
   validates :body, :length => { :in => 1..1500 }
   validates :author_name, :presence => true
+
   ## Callbacks ##
   # Hooks for tapping in to the lifecycle of an AR object.
-  before_save :set_author_name
+  before_validation :set_author_name
 
   ## Public instance methods ##
   # Comprise the public interface (API) for @post instances.

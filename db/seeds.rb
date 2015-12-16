@@ -5,7 +5,7 @@ end
 ActiveRecord::Base.transaction do
   Post.destroy_all
 
-  posts = Post.create(
+  posts = Post.create!(
     [
     {
     :title => "Hello world",
@@ -24,5 +24,29 @@ ActiveRecord::Base.transaction do
     :body => "My third blog post"
     }
    ]
+  )
+
+  Post.first.comments.create(
+    [
+      {
+        :body => "Hello I really like this post."
+      },
+      {
+        :body => "Awful post",
+        :author_name => "amosie"
+      }
+    ]
+  )
+
+  Post.last.comments.create(
+    [
+      {
+        :body => "Hello I really hate this post."
+      },
+      {
+        :body => "Best post",
+        :author_name => "amosie"
+      }
+    ]
   )
 end
