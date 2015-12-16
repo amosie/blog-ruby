@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    # any @var is handed to the view which is siltently rendered.
+    # render :index happens behind the scenes
   end
 
   def show

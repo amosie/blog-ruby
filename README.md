@@ -52,3 +52,39 @@ $ rake routes
 '''
 
 ---
+
+## Controllers
+
+Controller actions are public methods in a controller file. They act as an end point for a request. They should only handle very simple logic - they're only responsible for rendering views and offload any complex logic to other parts of the app.
+
+## Hashes
+
+A hash is a data type. Each item in a hash is a key value pair.
+
+'''
+def build_hash_of_books
+  hash = {}
+  @books_titles.each do |book|
+    hash [:title] = book
+  end
+  @books_rating.each do |rating|
+    hash [:rating] = rating
+  end
+end
+
+# [
+# {
+#   :title => "The Great Gatsby"
+#   :rating => "10"
+# },
+# {
+#   :title => "Harry Poter"
+#   :rating => "10"  
+# }
+# ]
+
+# gatsby = books[0]
+# potter = books[1]
+
+# gatsby[:rating] #=> 10
+# potter[:rating] #=> 10
