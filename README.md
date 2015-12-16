@@ -185,3 +185,44 @@ end
 User.send_confirmations
 
 '''
+
+## Accomodation
+### hotel
+### B&b
+### Apartment
+
+- number of rooms - integer
+- price - integer
+- location
+  - address - string
+  - latitude/ longitude - float
+- amenities
+  - tv
+  - spa
+  - swimming pool
+- availability
+- rating
+
+- name - string (dynamic?)
+- accomodation_type - string (selectable)
+- number_of_rooms - integer
+- price_in_pence - integer
+- latitude - float
+- lang - float
+- address - string (dynamic?)
+
+# post
+- id - integer
+- title - string
+- body - text
+- pull_quote - string
+- comment_count - dynamically found from comments table
+
+- author-name - string
+- comments - another table
+- likes - integer
+
+# comments
+- body - text
+- author-name - string
+- post_id
