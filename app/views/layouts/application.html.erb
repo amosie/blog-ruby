@@ -15,7 +15,10 @@
       <li><%= link_to "Archive", posts_path %></li>
     </ul>
   </nav>
-  <%= flash_warning %>
+
+  <% flash.each do |key, value| %>
+    <%= flash_warning(key, value) %>
+  <% end %>
 </header>
 
 <%= yield %>
