@@ -225,4 +225,4 @@ User.send_confirmations
 # comments
 - body - text
 - author-name - string
-- post_id
+- post_id - integer

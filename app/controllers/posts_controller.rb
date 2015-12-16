@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, :pull_quote)
+    params.require(:post).permit(:title, :body, :pull_quote, :author_name)
   end
 
   def find_post

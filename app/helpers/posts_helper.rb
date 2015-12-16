@@ -6,7 +6,7 @@ module PostsHelper
   end
 
   def time_of(post)
-    "Posted #{ time_ago_in_words(post.created_at) } ago."
+    "Posted by #{ post.author_name } #{ time_ago_in_words(post.created_at) } ago."
   end
 
   def edit_of(post)

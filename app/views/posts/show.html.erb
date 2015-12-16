@@ -2,6 +2,7 @@
 <h1><%= @post.title %></h1>
 
 <%= simple_format @post.body %>
+<p>Posted by <%= @post.author_name %></p>
 
 <div class="post__actions">
   <ul>

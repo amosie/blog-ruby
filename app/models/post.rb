@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => true
   validates :body, :length => { :in => 1..1500 }
 
+  before_save :set_author_name
+
   def pull_quote?
     pull_quote.present?
   end
@@ -12,5 +14,11 @@ class Post < ActiveRecord::Base
 
   def date
     created_at.strftime("%d-%m-%y")
+  end
+
+  def set_author_name
+    unless author_name.present?
+      self.author_name = "Anonymous"
+    end
   end
 end
