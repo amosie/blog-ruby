@@ -1,1 +1,10 @@
-<h1>Editing post number <%= params[:id] %></h1>
+<h1><%= @post.title %></h1>
+
+<!-- form goes here -->
+<%= simple_form_for @post do |f| %>
+   <%= f.input :title %>
+   <%= f.input :body %>
+   <%= f.input :pull_quote %>
+
+   <%= f.button :submit, "Edit post" %>
+<% end %>
