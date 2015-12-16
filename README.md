@@ -226,3 +226,6 @@ User.send_confirmations
 - body - text
 - author-name - string
 - post_id - integer
+
+# Callbacks
+You can tap in to the lifecycle of an ActiveRecord object. Callbacks are methods that get called at certain moments in the objects lifecycle. 
