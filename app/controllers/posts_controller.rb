@@ -17,9 +17,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to @post
+      flash_success("created")
     else
-      render :new
+      flash_error(:new)
     end
   end
 
@@ -28,9 +28,9 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post)
+      flash_success("updated")
     else
-      render :edit
+      flash_error(:edit)
     end
   end
 
@@ -46,5 +46,15 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def flash_success(action)
+    flash[:sucess] = "Successfully #{action} post"
+    redirect_to @post
+  end
+
+  def flash_error(template)
+    flash[:error] = "Something went wrong, please check the form and try again."
+    render template
   end
 end
