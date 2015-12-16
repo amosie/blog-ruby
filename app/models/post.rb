@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  validates :title, :presence => true, :uniqueness => true
+  validates :body, :length => { :in => 1..1500 }
+
   def pull_quote?
     pull_quote.present?
   end
