@@ -32,4 +32,23 @@ Each of these request verbs (aka methods) is supposed to be used for a different
 - Update actions use PUT or PATCH
 - Destroy actions use DELETE
 
-RESTful is the term for application logic which adheres to this convention of CRUD maps to POST, GET, PUT/ PATCH, DELETE respectively.
+RESTful is the term for application logic which adheres to this convention of CRUD maps to POST, GET, PUT/ PATCH, DELETE respectively. It stands for REpresentational State Transfer.
+
+To provide an app with all seven RESTful routes use the recsources method in the config/routes.rb file with the name of the resource as an argument:
+
+'''
+# config/routes.rb
+Blog::Application.routes.draw.do
+  resources :posts
+  resources :repos
+  resources :products
+end
+'''
+
+To look at all the routes available to your application run a rake task:
+
+'''
+$ rake routes
+'''
+
+---
