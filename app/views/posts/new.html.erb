@@ -1,10 +1,3 @@
 <h1>Write a blog post</h1>
 
-<!-- form goes here -->
-<%= simple_form_for @post do |f| %>
-   <%= f.input :title %>
-   <%= f.input :body %>
-   <%= f.input :pull_quote %>
-
-   <%= f.button :submit, "Create Post" %>
-<% end %>
+<%= render "form", :button => "Submit" %>
